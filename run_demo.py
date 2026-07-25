@@ -100,7 +100,7 @@ def generate_executive_summary_report(suite, pr: hitl_mod.GovernancePR, executio
 > **Fecha de Ejecución:** 2026-07-24  
 > **Estado General:** ✅ **EXITOSO (100% Pasó)**  
 > **Tiempo Total de Ejecución:** `{execution_time:.2f} segundos`  
-> **Arquitectura:** 100% Código Abierto & Gratuito (Python, Playwright, ChromaDB, Pydantic, Gemini / Local AI Engine)
+> **Arquitectura:** 100% Código Abierto & Gratuito (Python, Playwright, ChromaDB, Pydantic, Gemini / Motor Local)
 
 ---
 
@@ -125,7 +125,7 @@ def generate_executive_summary_report(suite, pr: hitl_mod.GovernancePR, executio
 
 ---
 
-## 🩹 3. Registro de Autosanación Autonoma (Self-Healing Log)
+## 🩹 3. Registro de Autosanación Autónoma (Self-Healing Log)
 
 - **Caso de Prueba Afectado:** `TC-FG-101-01`
 - **Selector Fallido (Simulado):** `#calc-submit-btn-legacy`
@@ -140,11 +140,12 @@ def generate_executive_summary_report(suite, pr: hitl_mod.GovernancePR, executio
 
 ```mermaid
 sequenceDiagram
-    participant Agent as Agente IA QA
-    participant Git as Rama Git Isolada
-    participant PR as Pull Request Simulado
-    participant Human as SDET Lead / Revisor
-    participant Main as Rama Main (Producción)
+    autonumber
+    actor Agent as Agente IA QA
+    actor Git as Rama Git Aislada
+    actor PR as Pull Request Simulado
+    actor Human as SDET Lead / Revisor
+    actor Main as Rama Main (Producción)
 
     Agent->>Git: Inyecta parche en feature/self-heal-tc-fg-101-01
     Agent->>PR: Abre PR con Diff & Puntaje de Confianza (98%)

@@ -16,31 +16,31 @@ La plataforma automatiza todo el ciclo de pruebas: desde la extracción semánti
 
 ```mermaid
 flowchart TD
-    subgraph Fase 1 & 2: Ingesta & Memoria Vectorial
-        A[Jira Stories Mock / Requerimientos F&G] --> B[ingest_stories.py]
-        B --> C[(ChromaDB Persistent Store)]
-        C --> D[retriever.py - Búsqueda Semántica]
+    subgraph "Fase 1 y 2: Ingesta y Memoria Vectorial"
+        A["Jira Stories Mock / Requerimientos F&G"] --> B["ingest_stories.py"]
+        B --> C[("ChromaDB Persistent Store")]
+        C --> D["retriever.py - Búsqueda Semántica"]
     end
 
-    subgraph Fase 3: Generación & Contratos Estructurados
-        D --> E[security.py - PIIMasker Guardrail]
-        E --> F[prompts.py - Versioned Prompts]
-        F --> G[llm_client.py - Gemini API / Motor Local]
-        G --> H[schemas.py - Validación Pydantic]
-        H --> I[test_generator.py]
-        I --> J[generated_tests.json & policy_config.spec.ts]
+    subgraph "Fase 3: Generación y Contratos Estructurados"
+        D --> E["security.py - PIIMasker Guardrail"]
+        E --> F["prompts.py - Versioned Prompts"]
+        F --> G["llm_client.py - Gemini API / Motor Local"]
+        G --> H["schemas.py - Validación Pydantic"]
+        H --> I["test_generator.py"]
+        I --> J["generated_tests.json & policy_config.spec.ts"]
     end
 
-    subgraph Fase 4, 5 & 6: Ejecución, Autosanación & Gobernanza
-        J --> K[Playwright Runner Headless]
-        K --> L{¿Test Pasó?}
-        L -- Sí --> M[Reporte OK]
-        L -- Timeout / Error --> N[self_healing.py - AI Healing Engine]
-        N --> O[Análisis del DOM HTML & Parche Local]
+    subgraph "Fase 4, 5 y 6: Ejecución, Autosanación y Gobernanza"
+        J --> K["Playwright Runner Headless"]
+        K --> L{"¿Test Pasó?"}
+        L -- Sí --> M["Reporte OK"]
+        L -- Timeout / Error --> N["self_healing.py - AI Healing Engine"]
+        N --> O["Análisis del DOM HTML & Parche Local"]
         O --> K
-        N --> P[hitl_governance.py - Rama Git & PR]
-        P --> Q{Aprobación Manual /approve}
-        Q -- Aprobado --> R[Fusión a Main & Executive Summary]
+        N --> P["hitl_governance.py - Rama Git & PR"]
+        P --> Q{"Aprobación Manual /approve"}
+        Q -- Aprobado --> R["Fusión a Main & Executive Summary"]
     end
 ```
 
@@ -80,8 +80,8 @@ Sigue estos pasos para clonar e instalar el proyecto desde cero:
 
 ### 1. Clonar el Repositorio
 ```bash
-git clone https://github.com/lodionan/AI-Software-Automation-Testing-Project.git
-cd "AI-Software-Automation-Testing-Project"
+git clone https://github.com/lodionan/AI_software_test_automation.git
+cd "AI_software_test_automation"
 ```
 
 ### 2. Instalar Dependencias de Python
@@ -185,7 +185,7 @@ python core/hitl_governance.py /approve
 ## 📁 Estructura del Proyecto
 
 ```text
-AI-Software-Automation-Testing-Project/
+AI_software_test_automation/
 ├── core/                        # Núcleo de IA y Orquestación
 │   ├── schemas.py               # Contratos de datos estricto con Pydantic
 │   ├── security.py              # Guardrail de enmascaramiento local de PII

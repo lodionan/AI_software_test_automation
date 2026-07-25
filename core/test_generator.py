@@ -79,9 +79,9 @@ def generate_playwright_spec(suite: TestSuite):
     ts_code = """import { test, expect } from '@playwright/test';
 import path from 'path';
 
-const APP_URL = `file://${path.resolve(__dirname, 'app/fg_policy_portal.html')}`;
+const APP_URL = `file://${path.resolve(__dirname, 'app/policy_portal.html')}`;
 
-test.describe('F&G Policy & Annuity Core Automation Suite', () => {
+test.describe('Enterprise Insurance Policy & Annuity Core Automation Suite', () => {
 
   test.beforeEach(async ({ page }) => {
     await page.goto(APP_URL);

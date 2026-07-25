@@ -1,25 +1,25 @@
 [
   {
-    "id": "US-FG-101",
+    "id": "US-INS-101",
     "title": "Annuity Premium Calculation & Guaranteed Minimum Rider Rate Rules",
     "feature": "Product Configuration",
-    "description": "As an F&G Annuities Agent, I want the policy portal to calculate the accumulation value, guaranteed minimum interest rate, and GLWB rider fees based on initial premium and applicant age.",
+    "description": "As an Annuities Agent, I want the policy portal to calculate the accumulation value, guaranteed minimum interest rate, and GLWB rider fees based on initial premium and applicant age.",
     "acceptance_criteria": [
       "AC1: If initial premium >= $10,000 and age >= 50, apply Tier 1 GLWB bonus of 5%.",
       "AC2: GLWB annual rider fee is calculated as 0.95% of contract value.",
       "AC3: Total accumulation value after Year 1 must equal Premium * (1 + GuaranteedRate) - RiderFee + Bonus.",
       "AC4: Output JSON quote must include policyType, guaranteedRate, annualRiderFee, and year1Accumulation."
     ],
-    "tags": ["annuities", "premium-calculator", "glwb-rider", "f&g-insurance"]
+    "tags": ["annuities", "premium-calculator", "glwb-rider", "insurance-domain"]
   },
   {
-    "id": "US-FG-102",
+    "id": "US-INS-102",
     "title": "Life & Annuity Policy Issuance Eligibility Rules & Underwriting Guardrails",
     "feature": "Underwriting Rules Engine",
-    "description": "As an F&G Policy Operations Lead, I want the system to evaluate applicant risk factors (age, state availability, suitability score) to issue policy automatically or flag for manual underwriting.",
+    "description": "As a Policy Operations Lead, I want the system to evaluate applicant risk factors (age, state availability, suitability score) to issue policy automatically or flag for manual underwriting.",
     "acceptance_criteria": [
       "AC1: Applicant age must be between 18 and 85 years old.",
-      "AC2: State availability must match approved F&G licensed states (IA, TX, FL, CA). NY is restricted.",
+      "AC2: State availability must match approved licensed states (IA, TX, FL, CA). NY is restricted.",
       "AC3: Suitability score >= 80 triggers Instant Approval status (APPROVED).",
       "AC4: Replacement policy flag set to true requires mandatory Disclosure Form submission."
     ],

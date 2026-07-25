@@ -53,7 +53,7 @@ class LLMClient:
                 new_selector = "[data-testid='calculate-policy-btn']"
 
             return {
-                "test_id": "TC-FG-101-01",
+                "test_id": "TC-INS-101-01",
                 "failing_selector": failed,
                 "suggested_selector": new_selector,
                 "confidence_score": 0.98,
@@ -62,11 +62,11 @@ class LLMClient:
             }
         else:
             # Test Case Generation fallback
-            story_id = "US-FG-101"
-            if "US-FG-102" in prompt:
-                story_id = "US-FG-102"
+            story_id = "US-INS-101"
+            if "US-INS-102" in prompt or "US-FG-102" in prompt:
+                story_id = "US-INS-102"
                 return {
-                    "id": "TC-FG-102-01",
+                    "id": "TC-INS-102-01",
                     "story_id": story_id,
                     "title": "Validate Annuity Policy Issuance Eligibility & Underwriting Rules",
                     "description": "Verify applicant age, state licensing, and suitability score automated approval status.",
@@ -84,7 +84,7 @@ class LLMClient:
                 }
 
             return {
-                "id": "TC-FG-101-01",
+                "id": "TC-INS-101-01",
                 "story_id": story_id,
                 "title": "Validate Fixed Index Annuity Base Premium & GLWB Rider Calculation",
                 "description": "Calculate Year 1 accumulation value with 5% GLWB bonus for initial premium >= $10,000.",

@@ -1,7 +1,7 @@
 {
-  "name": "fg-autonomous-qa-poc",
+  "name": "ai-autonomous-qa-poc",
   "version": "1.0.0",
-  "description": "F&G Insurance Autonomous QA Automation PoC with AI Self-Healing & Vector DB Requirements Engineering",
+  "description": "Enterprise Insurance Autonomous QA Automation PoC with AI Self-Healing & Vector DB Requirements Engineering",
   "main": "index.js",
   "scripts": {
     "test:e2e": "playwright test",

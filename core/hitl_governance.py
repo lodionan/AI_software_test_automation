@@ -79,7 +79,7 @@ class HITLGovernanceManager:
 if __name__ == "__main__":
     gov = HITLGovernanceManager()
     dummy_proposal = SelfHealProposal(
-        test_id="TC-FG-101-01",
+        test_id="TC-INS-101-01",
         failing_selector="#calc-submit-btn-legacy",
         suggested_selector="[data-testid='calculate-policy-btn']",
         confidence_score=0.98,

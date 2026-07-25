@@ -14,7 +14,7 @@ class AssertionRule(BaseModel):
     expected_value: str = Field(..., description="Target value for assertion match")
 
 class TestCase(BaseModel):
-    id: str = Field(..., description="Unique Test Case Identifier e.g. TC-FG-101-01")
+    id: str = Field(..., description="Unique Test Case Identifier e.g. TC-INS-101-01")
     story_id: str = Field(..., description="Associated Jira User Story ID")
     title: str = Field(..., description="Descriptive title of test case")
     description: str = Field(..., description="Objective and scope of the test case")
@@ -24,7 +24,7 @@ class TestCase(BaseModel):
     assertions: List[AssertionRule] = Field(..., description="Validation rules for test pass criteria")
 
 class TestSuite(BaseModel):
-    suite_name: str = Field("F&G Insurance Core Automation Matrix")
+    suite_name: str = Field("Enterprise Insurance Core Automation Matrix")
     domain: str = Field("Fixed & Guaranteed Life & Annuities")
     version: str = Field("1.0.0")
     test_cases: List[TestCase] = Field(...)

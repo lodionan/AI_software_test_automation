@@ -14,7 +14,7 @@ from core.prompts import SELF_HEALING_PROMPT_V1
 from core.schemas import SelfHealProposal
 
 SPEC_PATH = os.path.join(ROOT_DIR, "tests", "e2e", "policy_config.spec.ts")
-DOM_PATH = os.path.join(ROOT_DIR, "tests", "e2e", "app", "fg_policy_portal.html")
+DOM_PATH = os.path.join(ROOT_DIR, "tests", "e2e", "app", "policy_portal.html")
 
 class SelfHealingEngine:
     """Autonomous Self-Healing Agent for Playwright Test Failures."""
@@ -67,7 +67,7 @@ class SelfHealingEngine:
             failed_selector=failing_selector,
             error_log=error_output[:800],
             dom_html=dom_content[:1500],
-            test_id="TC-FG-101-01"
+            test_id="TC-INS-101-01"
         )
 
         print("\n🧠 [AI HEALING AGENT] Analyzing DOM structural changes & proposing locator repair...")

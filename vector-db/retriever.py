@@ -13,7 +13,7 @@ def get_relevant_stories(query: str, n_results: int = 2) -> list[dict]:
         raise FileNotFoundError("ChromaDB storage not found. Please run vector-db/ingest_stories.py first.")
         
     client = chromadb.PersistentClient(path=STORAGE_PATH)
-    collection = client.get_collection("fg_user_stories")
+    collection = client.get_collection("ins_user_stories")
     
     results = collection.query(
         query_texts=[query],

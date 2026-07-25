@@ -29,7 +29,7 @@ ROOT_SUMMARY_MD_PATH = os.path.join(ROOT_DIR, "report-summary.md")
 def run_complete_poc_demo():
     print("""
 ================================================================================
-   F&G INSURANCE AUTONOMOUS QA AUTOMATION PLATFORM (PoC / DEMO)
+   ENTERPRISE INSURANCE AUTONOMOUS QA AUTOMATION PLATFORM (PoC / DEMO)
    Architecture: Open-Source AI (ChromaDB + Playwright + Pydantic + Gemini)
 ================================================================================
 """)
@@ -70,7 +70,7 @@ def run_complete_poc_demo():
     else:
         # Default proposal object for governance demonstration
         dummy = self_heal_mod.SelfHealProposal(
-            test_id="TC-FG-101-01",
+            test_id="TC-INS-101-01",
             failing_selector="#calc-submit-btn-legacy",
             suggested_selector="[data-testid='calculate-policy-btn']",
             confidence_score=0.98,
@@ -95,7 +95,7 @@ def run_complete_poc_demo():
     print("================================================================================")
 
 def generate_executive_summary_report(suite, pr: hitl_mod.GovernancePR, execution_time: float):
-    report_content = f"""# 📊 Resumen Ejecutivo: Demo de Automatización de QA Autónoma con IA (F&G Insurance)
+    report_content = f"""# 📊 Resumen Ejecutivo: Demo de Automatización de QA Autónoma con IA
 
 > **Fecha de Ejecución:** 2026-07-24  
 > **Estado General:** ✅ **EXITOSO (100% Pasó)**  
@@ -109,11 +109,11 @@ def generate_executive_summary_report(suite, pr: hitl_mod.GovernancePR, executio
 | Fase | Componente | Descripción Técnica | Estado |
 |---|---|---|---|
 | **Fase 1** | **Estructura del Monorepo** | Organización modular (`/core`, `/vector-db`, `/tests/e2e`, `/tests/data`, `/reports`) | ✅ Completado |
-| **Fase 2** | **ChromaDB Vector Store** | Almacenamiento e ingesta de Historias de Usuario F&G (Cálculo de primas FIA, GLWB rider y reglas de emisión) | ✅ Completado |
+| **Fase 2** | **ChromaDB Vector Store** | Almacenamiento e ingesta de Historias de Usuario (Cálculo de primas FIA, GLWB rider y reglas de emisión) | ✅ Completado |
 | **Fase 3** | **Contratos Pydantic & AI Generator** | Forzado de salida determinista contra modelo `TestCase` con enmascaramiento local de PII | ✅ Completado |
-| **Fase 4** | **Playwright E2E Suite** | Ejecución headless de suite funcional contra portal web interactivo de pólizas F&G | ✅ Completado |
+| **Fase 4** | **Playwright E2E Suite** | Ejecución headless de suite funcional contra portal web interactivo de pólizas | ✅ Completado |
 | **Fase 5** | **AI Self-Healing Engine** | Captura autónoma de timeout por selector alterado, análisis de DOM y autosanación de spec | ✅ Completado |
-| **Fase 6** | **HITL Governance & PR Gate** | Aislamiento en rama Git `feature/self-heal-tc-fg-101-01`, aprobación manual `/approve` y fusión | ✅ Completado |
+| **Fase 6** | **HITL Governance & PR Gate** | Aislamiento en rama Git `feature/self-heal-tc-ins-101-01`, aprobación manual `/approve` y fusión | ✅ Completado |
 
 ---
 
@@ -127,7 +127,7 @@ def generate_executive_summary_report(suite, pr: hitl_mod.GovernancePR, executio
 
 ## 🩹 3. Registro de Autosanación Autónoma (Self-Healing Log)
 
-- **Caso de Prueba Afectado:** `TC-FG-101-01`
+- **Caso de Prueba Afectado:** `TC-INS-101-01`
 - **Selector Fallido (Simulado):** `#calc-submit-btn-legacy`
 - **Selector Reparado por IA:** `[data-testid='calculate-policy-btn']`
 - **Puntaje de Confianza de IA:** `98.0%`
@@ -147,7 +147,7 @@ sequenceDiagram
     actor Human as SDET Lead / Revisor
     actor Main as Rama Main (Producción)
 
-    Agent->>Git: Inyecta parche en feature/self-heal-tc-fg-101-01
+    Agent->>Git: Inyecta parche en feature/self-heal-tc-ins-101-01
     Agent->>PR: Abre PR con Diff & Puntaje de Confianza (98%)
     Human->>PR: Revisa propuesta y ejecuta comando /approve
     PR->>Main: Fusiona cambios aprobados y cierra PR
@@ -155,8 +155,8 @@ sequenceDiagram
 
 - **Estado de Gobernanza:** `APPROVED`
 - **Comando de Aprobación:** `/approve`
-- **Rama Aislada:** `feature/self-heal-tc-fg-101-01`
-- **Mensaje de Commit:** `fix(tests): auto-heal broken locator in TC-FG-101-01`
+- **Rama Aislada:** `feature/self-heal-tc-ins-101-01`
+- **Mensaje de Commit:** `fix(tests): auto-heal broken locator in TC-INS-101-01`
 
 ---
 

@@ -1,4 +1,4 @@
-# 🤖 AI Software Automation Testing Platform (F&G Insurance PoC)
+# 🤖 AI Software Automation Testing Platform
 
 [![Python](https://img.shields.io/badge/Python-3.12%2B-blue.svg)](https://www.python.org/)
 [![Playwright](https://img.shields.io/badge/Playwright-TypeScript-green.svg)](https://playwright.dev/)
@@ -6,7 +6,7 @@
 [![Pydantic](https://img.shields.io/badge/Pydantic-v2.0-red.svg)](https://docs.pydantic.dev/)
 [![License](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 
-Demostrador funcional (PoC / Demo) local, 100% gratuito y de código abierto de una **Plataforma Autónoma de QA Automation impulsada por Inteligencia Artificial**, orientada al sector asegurador (**Fidelity & Guaranty Life - F&G**).
+Demostrador funcional (PoC / Demo) local, 100% gratuito y de código abierto de una **Plataforma Autónoma de QA Automation impulsada por Inteligencia Artificial**, orientada al sector asegurador (Life & Annuities).
 
 La plataforma automatiza todo el ciclo de pruebas: desde la extracción semántica de requerimientos en Jira, la generación determinista de matrices de prueba validadas por esquemas estrictos, la ejecución E2E con Playwright, hasta la **autosanación autónoma de locators frágiles (Self-Healing)** y el control de **Gobernanza Human-in-the-Loop (HITL)** mediante Pull Requests simulados.
 
@@ -17,7 +17,7 @@ La plataforma automatiza todo el ciclo de pruebas: desde la extracción semánti
 ```mermaid
 flowchart TD
     subgraph "Fase 1 y 2: Ingesta y Memoria Vectorial"
-        A["Jira Stories Mock / Requerimientos F&G"] --> B["ingest_stories.py"]
+        A["Jira Stories Mock / Requerimientos"] --> B["ingest_stories.py"]
         B --> C[("ChromaDB Persistent Store")]
         C --> D["retriever.py - Búsqueda Semántica"]
     end
@@ -55,7 +55,7 @@ flowchart TD
 3. **Contratos Estructurados Deterministas (Pydantic Validation):**
    - Garantiza que las matrices de prueba generadas por la IA no contengan alucinaciones y cumplan con esquemas rigurosos (`TestCase`, `TestSuite`, `AssertionRule`).
 4. **Ejecución E2E Funcional (Playwright & TypeScript):**
-   - Generación automática de specs navegables en TypeScript ejecutadas sobre un portal de seguros web interactivo (`fg_policy_portal.html`) en modo *headless* con captura de evidencias (trazas, screenshots y logs).
+   - Generación automática de specs navegables en TypeScript ejecutadas sobre un portal de seguros web interactivo (`policy_portal.html`) en modo *headless* con captura de evidencias (trazas, screenshots y logs).
 5. **Autosanación Inteligente (AI Self-Healing Engine):**
    - Ante fallas por cambios de selectores en el DOM (deriva de código), la IA inspecciona el HTML de la página, analiza el error de Playwright, propone un localizador robusto (priorizando `data-testid` o atributos ARIA) y parchea la prueba en tiempo de ejecución.
 6. **Gobernanza Human-in-the-Loop (HITL) & Git:**
@@ -110,17 +110,17 @@ python run_demo.py
 #### Salida Esperada en Consola:
 ```text
 ================================================================================
-   F&G INSURANCE AUTONOMOUS QA AUTOMATION PLATFORM (PoC / DEMO)
+   ENTERPRISE INSURANCE AUTONOMOUS QA AUTOMATION PLATFORM (PoC / DEMO)
    Architecture: Open-Source AI (ChromaDB + Playwright + Pydantic + Gemini)
 ================================================================================
 
 📁 [PHASE 1 & 2] Vector DB Setup & Requirements Ingestion
-[SUCCESS] Ingested 2 F&G User Stories into local ChromaDB store
+[SUCCESS] Ingested 2 User Stories into local ChromaDB store
 
 📜 [PHASE 3] Pydantic Contract Validation & Test Generation
 [AI ORCHESTRATOR] Fetching requirements from ChromaDB...
-  [VALIDATED] TC-FG-101-01: Validate Fixed Index Annuity Base Premium & GLWB Rider Calculation
-  [VALIDATED] TC-FG-102-01: Validate Annuity Policy Issuance Eligibility & Underwriting Rules
+  [VALIDATED] TC-INS-101-01: Validate Fixed Index Annuity Base Premium & GLWB Rider Calculation
+  [VALIDATED] TC-INS-102-01: Validate Annuity Policy Issuance Eligibility & Underwriting Rules
 
 🎭 [PHASE 4] Baseline Playwright E2E Execution
   ✓ 2 passed (2.3s)
@@ -134,7 +134,7 @@ python run_demo.py
 🎉 [SELF-HEALING SUCCESS] All Playwright E2E tests passed cleanly after self-repair!
 
 🛡️  [PHASE 6: HUMAN-IN-THE-LOOP (HITL) GOVERNANCE GATE]
-📌 Simulated Git Branch Created: 'feature/self-heal-tc-fg-101-01'
+📌 Simulated Git Branch Created: 'feature/self-heal-tc-ins-101-01'
 ✅ [HUMAN GOVERNANCE] Command '/approve' received!
 🔀 [GIT MERGE] Merging branch into 'main'...
 
@@ -200,11 +200,11 @@ AI_software_test_automation/
 │   └── chroma_storage/          # Almacén persistente ChromaDB
 ├── tests/                       # Repositorio de Pruebas y Datos
 │   ├── data/
-│   │   ├── jira_stories.json    # Mock de historias de usuario Jira F&G
+│   │   ├── jira_stories.json    # Mock de historias de usuario Jira
 │   │   └── generated_tests.json # Matriz de pruebas validada por Pydantic
 │   └── e2e/
 │       ├── app/
-│       │   └── fg_policy_portal.html # Aplicación web interactiva F&G
+│       │   └── policy_portal.html    # Aplicación web interactiva
 │       ├── playwright.config.ts      # Configuración de Playwright
 │       └── policy_config.spec.ts     # Suite de pruebas TypeScript generada
 ├── reports/                     # Reportes y Salidas Estructuradas

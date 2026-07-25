@@ -10,7 +10,7 @@ STORAGE_PATH = os.path.join(os.path.dirname(__file__), "chroma_storage")
 STORIES_JSON = os.path.join(os.path.dirname(__file__), "..", "tests", "data", "jira_stories.json")
 
 def ingest_user_stories():
-    """Initializes local persistent ChromaDB and ingests F&G insurance user stories."""
+    """Initializes local persistent ChromaDB and ingests insurance user stories."""
     os.makedirs(STORAGE_PATH, exist_ok=True)
     
     # Persistent Chroma Client
@@ -18,8 +18,8 @@ def ingest_user_stories():
     
     # Get or create collection
     collection = client.get_or_create_collection(
-        name="fg_user_stories",
-        metadata={"hnsw:space": "cosine", "description": "F&G Insurance Requirements Vector Store"}
+        name="ins_user_stories",
+        metadata={"hnsw:space": "cosine", "description": "Enterprise Insurance Requirements Vector Store"}
     )
     
     # Load JSON mock stories
@@ -47,7 +47,7 @@ def ingest_user_stories():
         ids=ids
     )
     
-    print(f"[SUCCESS] Ingested {len(ids)} F&G User Stories into local ChromaDB store at {STORAGE_PATH}")
+    print(f"[SUCCESS] Ingested {len(ids)} User Stories into local ChromaDB store at {STORAGE_PATH}")
     return collection
 
 if __name__ == "__main__":

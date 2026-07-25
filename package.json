@@ -1,0 +1,25 @@
+{
+  "name": "fg-autonomous-qa-poc",
+  "version": "1.0.0",
+  "description": "F&G Insurance Autonomous QA Automation PoC with AI Self-Healing & Vector DB Requirements Engineering",
+  "main": "index.js",
+  "scripts": {
+    "test:e2e": "playwright test",
+    "test:e2e:headed": "playwright test --headed",
+    "test:e2e:report": "playwright show-report"
+  },
+  "keywords": [
+    "playwright",
+    "sdet",
+    "self-healing",
+    "insurance",
+    "ai-testing"
+  ],
+  "author": "SDET Architect",
+  "license": "MIT",
+  "devDependencies": {
+    "@playwright/test": "^1.50.0",
+    "@types/node": "^22.0.0",
+    "typescript": "^5.7.0"
+  }
+}

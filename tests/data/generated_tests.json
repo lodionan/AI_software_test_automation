@@ -1,0 +1,107 @@
+{
+  "suite_name": "F&G Insurance Core Automation Matrix",
+  "domain": "Fixed & Guaranteed Life & Annuities",
+  "version": "1.0.0",
+  "test_cases": [
+    {
+      "id": "TC-FG-101-01",
+      "story_id": "US-FG-101",
+      "title": "Validate Fixed Index Annuity Base Premium & GLWB Rider Calculation",
+      "description": "Calculate Year 1 accumulation value with 5% GLWB bonus for initial premium >= $10,000.",
+      "priority": "P0_CRITICAL",
+      "test_type": "UI_FUNCTIONAL",
+      "steps": [
+        {
+          "step_number": 1,
+          "action": "fill",
+          "selector": "#premium-amount",
+          "input_data": "15000",
+          "expected_behavior": "Premium set to 15000"
+        },
+        {
+          "step_number": 2,
+          "action": "fill",
+          "selector": "#applicant-age",
+          "input_data": "55",
+          "expected_behavior": "Age set to 55"
+        },
+        {
+          "step_number": 3,
+          "action": "select",
+          "selector": "#rider-type",
+          "input_data": "GLWB_PLUS",
+          "expected_behavior": "Rider set to GLWB_PLUS"
+        },
+        {
+          "step_number": 4,
+          "action": "click",
+          "selector": "[data-testid='calculate-policy-btn']",
+          "input_data": null,
+          "expected_behavior": "Calculate quote"
+        }
+      ],
+      "assertions": [
+        {
+          "target_element": "#tier-bonus-result",
+          "operator": "contains",
+          "expected_value": "5%"
+        },
+        {
+          "target_element": "#rider-fee-result",
+          "operator": "contains",
+          "expected_value": "$142.50"
+        },
+        {
+          "target_element": "#accum-value-result",
+          "operator": "contains",
+          "expected_value": "$16,282.50"
+        }
+      ]
+    },
+    {
+      "id": "TC-FG-102-01",
+      "story_id": "US-FG-102",
+      "title": "Validate Annuity Policy Issuance Eligibility & Underwriting Rules",
+      "description": "Verify applicant age, state licensing, and suitability score automated approval status.",
+      "priority": "P0_CRITICAL",
+      "test_type": "UI_FUNCTIONAL",
+      "steps": [
+        {
+          "step_number": 1,
+          "action": "fill",
+          "selector": "#applicant-age",
+          "input_data": "45",
+          "expected_behavior": "Age set to 45"
+        },
+        {
+          "step_number": 2,
+          "action": "select",
+          "selector": "#applicant-state",
+          "input_data": "IA",
+          "expected_behavior": "State selected as IA"
+        },
+        {
+          "step_number": 3,
+          "action": "fill",
+          "selector": "#suitability-score",
+          "input_data": "85",
+          "expected_behavior": "Score set to 85"
+        },
+        {
+          "step_number": 4,
+          "action": "click",
+          "selector": "[data-testid='submit-eligibility']",
+          "input_data": null,
+          "expected_behavior": "Evaluation triggered"
+        }
+      ],
+      "assertions": [
+        {
+          "target_element": "#status-badge",
+          "operator": "equals",
+          "expected_value": "APPROVED"
+        }
+      ]
+    }
+  ]
+}

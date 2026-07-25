@@ -1,0 +1,10 @@
+{
+  "branch_name": "feature/self-heal-tc-fg-101-01",
+  "pr_title": "[AI Self-Heal] Repair locator for test TC-FG-101-01",
+  "pr_description": "**Auto-Repair Summary**:\n- **Failing Selector**: `#calc-submit-btn-legacy`\n- **Repaired Selector**: `[data-testid='calculate-policy-btn']`\n- **Confidence**: 98.0%\n- **Reasoning**: DOM structure updated selector from legacy ID '#calc-submit-btn-legacy' to modern semantic attribute '[data-testid='calculate-policy-btn']'.",
+  "commit_message": "fix(tests): auto-heal broken locator in TC-FG-101-01",
+  "modified_files": [
+    "tests/e2e/policy_config.spec.ts"
+  ],
+  "status": "APPROVED"
+}
